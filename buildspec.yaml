@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18 # Or 20, or a version compatible with your project
+      nodejs: 22
     commands:
       - echo "Installing dependencies..."
       # Add these lines to clean up before npm ci
