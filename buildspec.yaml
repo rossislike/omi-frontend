@@ -7,9 +7,9 @@ phases:
     commands:
       - echo "Installing dependencies..."
       # Add these lines to clean up before npm ci
-      # - npm cache clean --force
-      # - rm -rf node_modules
-      # - rm package-lock.json # This is important for npm ci issues
+      - npm cache clean --force
+      - rm -rf node_modules
+      - rm package-lock.json # This is important for npm ci issues
 
   pre_build:
     commands:
@@ -35,11 +35,11 @@ phases:
       - echo Copying dist to cache...
       - mkdir -p /tmp/cache_dist
       - cp -r dist/* /tmp/cache_dist/
-      # - echo Syncing from cache to S3...
-      # - aws s3 rm s3://$S3_BUCKET --recursive
-      # - aws s3 sync /tmp/cache_dist s3://$S3_BUCKET/dist --delete --cache-control max-age=31536000,public
-      # - aws s3 cp s3://$S3_BUCKET/dist/index.html s3://$S3_BUCKET/dist/index.html --metadata-directive REPLACE --cache-control no-cache,no-store,must-revalidate --content-type text/html
-      # - aws s3api put-object --bucket $S3_BUCKET --key photos/
+      - echo Syncing from cache to S3...
+      - aws s3 rm s3://$S3_BUCKET --recursive
+      - aws s3 sync /tmp/cache_dist s3://$S3_BUCKET/dist --delete --cache-control max-age=31536000,public
+      - aws s3 cp s3://$S3_BUCKET/dist/index.html s3://$S3_BUCKET/dist/index.html --metadata-directive REPLACE --cache-control no-cache,no-store,must-revalidate --content-type text/html
+      - aws s3api put-object --bucket $S3_BUCKET --key photos/
       # - echo Invalidating CloudFront...
       # - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
       - echo Deployment completed successfully
