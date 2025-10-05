@@ -1,8 +1,10 @@
 # Todo
 
 - [x] Set up CI/CD with AWS CodeBuild and CodePipeline
-- [ ] Configure S3 bucket for static website hosting
-- [ ] Set up API Gateway
-- [ ] Set up Lambda for backend services
+- [x] Configure S3 bucket for static website hosting
+- [x] Set up CloudFront distribution for CDN
+- [x] Set up basic Lambda for API Gateway
+- [x] Set up API Gateway
+- [x] Call api gateway endpoint from the frontend
 - [ ] Set up DynamoDB for database
-- [ ] Set up CloudFront distribution for CDN
+- [ ] Use lambda to pull from DynamoDB

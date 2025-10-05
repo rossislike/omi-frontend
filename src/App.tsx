@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react"
+
+type Ksuid = {
+  string: string
+  timestamp: string
+  payload: string
+}
+
+type TestData = {
+  message: string
+  ksuid: Ksuid
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState<TestData | null>(null)
+
+  useEffect(() => {
+    async function fetchTest() {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/test`)
+        const data = await response.json()
+        setData({ ...data })
+        console.log(data)
+      } catch (error) {
+        console.error("Error fetching data:", error)
+      }
+    }
+    fetchTest()
+  }, [])
+
+  if (!data) {
+    return <div>Loading...</div>
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p>Message: {data.message}</p>
+      <p>Timestamp: {data.ksuid.timestamp}</p>
+      <p>Payload: {data.ksuid.payload}</p>
+      <p>KSUID: {data.ksuid.string}</p>
     </>
   )
 }
