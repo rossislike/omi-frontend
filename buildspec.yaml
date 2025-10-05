@@ -26,8 +26,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the React application...
-      # - VITE_API_URL=$VITE_API_URL VITE_USER_POOL_ID=$VITE_USER_POOL_ID VITE_CLIENT_ID=$VITE_CLIENT_ID VITE_REDIRECT_URI=$VITE_REDIRECT_URI VITE_COGNITO_DOMAIN=$VITE_COGNITO_DOMAIN npm run build
-      - npm run build
+      - VITE_API_URL=$VITE_API_URL VITE_USER_POOL_ID=$VITE_USER_POOL_ID VITE_CLIENT_ID=$VITE_CLIENT_ID VITE_REDIRECT_URI=$VITE_REDIRECT_URI VITE_COGNITO_DOMAIN=$VITE_COGNITO_DOMAIN npm run build
 
   post_build:
     commands:
