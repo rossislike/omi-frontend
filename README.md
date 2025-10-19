@@ -6,5 +6,8 @@
 - [x] Set up basic Lambda for API Gateway
 - [x] Set up API Gateway
 - [x] Call api gateway endpoint from the frontend
-- [ ] Set up DynamoDB for database
-- [ ] Use lambda to pull from DynamoDB
+- [x] Set up DynamoDb for database
+- [ ] Set up Route53
+- [ ] Use lambda to write to DynamoDb
+- [ ] Read from DynamoDb
+- [ ] Write to DynamoDB from the frontend
