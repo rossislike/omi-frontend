@@ -7,7 +7,9 @@
 - [x] Set up API Gateway
 - [x] Call api gateway endpoint from the frontend
 - [x] Set up DynamoDb for database
-- [ ] Set up Route53
+- [x] Set up Route53
+- [ ] Create prod infrastructure
+- [ ] Make first deployment to prod
 - [ ] Use lambda to write to DynamoDb
 - [ ] Read from DynamoDb
 - [ ] Write to DynamoDB from the frontend
