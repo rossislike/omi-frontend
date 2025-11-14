@@ -13,3 +13,8 @@
 - [ ] Use lambda to write to DynamoDb
 - [ ] Read from DynamoDb
 - [ ] Write to DynamoDB from the frontend
+
+## Issues
+
+- [x] Photos bucket
+- [ ] Prod
