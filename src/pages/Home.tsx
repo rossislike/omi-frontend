@@ -9,7 +9,7 @@ function Home() {
         className="relative h-[600px] bg-cover bg-center bg-fixed"
         style={{
           backgroundImage:
-            "url('https://omi-frontend-photos-dev.s3.us-east-1.amazonaws.com/main-chuch.png')",
+            "url('https://omi-frontend-photos-prod.s3.us-east-1.amazonaws.com/main-chuch.png')",
         }}
       >
         <div className="absolute inset-0  bg-opacity-50">
