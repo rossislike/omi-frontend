@@ -41,7 +41,7 @@ phases:
       - aws s3 sync /tmp/cache_dist s3://$S3_BUCKET/dist --delete --cache-control max-age=31536000,public
       - aws s3 cp s3://$S3_BUCKET/dist/index.html s3://$S3_BUCKET/dist/index.html --metadata-directive REPLACE --cache-control no-cache,no-store,must-revalidate --content-type text/html
       - aws s3api put-object --bucket $S3_BUCKET --key photos/
-      - aws s3 cp /tmp/cache_photos s3://$S3_BUCKET/photos --delete --cache-control max-age=31536000,public
+      - aws s3 sync /tmp/cache_photos s3://$S3_BUCKET/photos --delete --cache-control max-age=31536000,public
       - echo Invalidating CloudFront...
       - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
       - echo Deployment completed successfully
