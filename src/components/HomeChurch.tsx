@@ -6,9 +6,7 @@ export function ChurchHome() {
     <div className="flex items-center">
       <Link to="/">
         <Church className="h-8 w-8 text-blue-600" />
-        <span className="font-semibold text-xl">
-          Overcomer Ministries International
-        </span>
+        <span className="font-semibold text-xl">OMIC</span>
       </Link>
     </div>
   )

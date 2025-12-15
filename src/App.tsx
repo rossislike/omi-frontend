@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Navbar } from "./components/Navbar"
 import { Footer } from "./components/Footer"
 import Home from "./pages/Home"
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 function App() {
   // const { data } = useTest()
   // console.log(data)
@@ -12,21 +12,25 @@ function App() {
   //   return <div>Loading...</div>
   // }
 
-  console.log("hello")
+  const queryClient = new QueryClient({
+    defaultOptions: {},
+  })
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-white">
-        <main>
-          <header>
-            <Navbar />
-          </header>
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className="min-h-screen bg-white">
+          <main>
+            <header>
+              <Navbar />
+            </header>
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </QueryClientProvider>
     </BrowserRouter>
   )
 }
