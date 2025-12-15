@@ -44,7 +44,8 @@ export function Footer() {
         </div>
         <div className="mt-8 text-center border-t border-gray-700 pt-8">
           <p>
-            &copy; 2025 Overcomer Ministries International. All rights reserved.
+            &copy; 2025 Overcomer Ministries International Center. All rights
+            reserved.
           </p>
         </div>
       </div>

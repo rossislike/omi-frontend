@@ -1,16 +1,22 @@
 import { ArrowRight } from "lucide-react"
 import { Link } from "react-router-dom"
+import useGetPicture from "../hooks/useGetPicture"
 
 function Home() {
+  const { data: mainPicture, isLoading } = useGetPicture("main-church.png")
+
   return (
     <div>
       {/* Hero Section */}
       <div
         className="relative h-[600px] bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage:
-            "url('https://omi-frontend-photos-prod.s3.us-east-1.amazonaws.com/main-chuch.png')",
-        }}
+        style={
+          isLoading
+            ? {}
+            : {
+                backgroundImage: `url(${mainPicture})`,
+              }
+        }
       >
         <div className="absolute inset-0  bg-opacity-50">
           <div className="max-w-7xl mx-auto px-4 h-full flex items-center">
